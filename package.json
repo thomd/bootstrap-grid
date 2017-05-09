@@ -1,0 +1,14 @@
+{
+  "name": "bootstrap-grid",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "/opt/repos/git/bootstrap-grid.git/",
+  "author": "Thomas Duerr <thomduerr@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^2.6.0"
+  }
+}
