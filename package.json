@@ -2,7 +2,6 @@
   "name": "bootstrap-grid",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "/opt/repos/git/bootstrap-grid.git/",
   "author": "Thomas Duerr <thomduerr@gmail.com>",
   "license": "MIT",
   "devDependencies": {
