@@ -12,7 +12,7 @@ After cloning this repository, run
     gulp
     python -m http.server 8000
 
-## Grid Configuration
+## Grid Configuration with Bootstrap Semantics
 
 Configuring grid system before importing relevant grid imports is possible as variables are set to `!default`
 in `_variables.scss`:
@@ -36,6 +36,51 @@ Import normalizing rules (`_reboot.scss`) and grid system (`_grid.scss`) from [b
     @import '../bootstrap/scss/_reboot.scss';
     @import '../bootstrap/scss/_grid.scss';
 
-## Grid with Custom Semantics
+## Grid Configuration with Custom Semantics
 
+Supposed you have a given layout class-semantic like for example
 
+    <div class="content">
+      <div class="row">
+	<div class="content-primary">foo</div>
+	<div class="content-secondary">bar</div>
+      </div>
+    </div>
+
+then you can use bootstrap's mixins for creating a custom grid system:
+
+    @import '../bootstrap/scss/_variables.scss';
+    @import '../bootstrap/scss/_mixins.scss';
+    @import '../bootstrap/scss/_reboot.scss';
+
+    .content {
+      @include make-container();
+    }
+    .row {
+      @include make-row();
+    }
+    .content-primary {
+      @include make-col-ready();
+      @include make-col(8);
+      @media (min-width: 480px) {
+        @include make-col(5);
+      }
+    }
+    .content-secondary {
+      @include make-col-ready();
+      @include make-col(8);
+      @media (min-width: 480px) {
+        @include make-col(3);
+      }
+    }
+
+## Namespacing
+
+In order to avoid naming conflicts, bootstrap can be namespaced:
+
+    @import '../bootstrap/scss/_variables.scss';
+    @import '../bootstrap/scss/_mixins.scss';
+    @import '../bootstrap/scss/_reboot.scss';
+    .my-namespace {
+      @import '../bootstrap/scss/_grid.scss';
+    }

@@ -1,15 +1,18 @@
-// reboot (normalize)
+
+// ----- reboot (normalize) -----------------------------------------------------------------------
+
 @import '../bootstrap/scss/_variables.scss';
 @import '../bootstrap/scss/_mixins.scss';
 @import '../bootstrap/scss/_reboot.scss';
 
 
-// 8-column grid with bootstrap's semantic namespaced with a 'bootstrap' class
+// ----- 8-column grid with bootstrap's semantic namespaced with a 'bootstrap' class --------------
+
 .bootstrap {
   $enable-flex: true;
   $enable-grid-classes: true;
   $grid-columns: 8;
-  $grid-gutter-width-base: 60px;
+  $grid-gutter-width-base: 30px;
   $grid-breakpoints: (
     xs: 0,
     sm: 480px,
@@ -22,9 +25,63 @@
   @import '../bootstrap/scss/_mixins.scss';
   @import '../bootstrap/scss/_reboot.scss';
   @import '../bootstrap/scss/_grid.scss';
+
+  // we want a fliud layout, but not larger than 60em
+  .container-fluid {
+    max-width: 60em;
+  }
+
+  // debugging
+  * {
+    outline: 1px solid orange;
+  }
 }
 
-// debugging
-* {
-  outline: 1px solid orange;
+
+// ----- 12-column grid with a custom semantic namespaced with a 'custom' class -------------------
+
+.custom {
+  $enable-flex: true;
+  $enable-grid-classes: true;
+  $grid-columns: 8;
+  $grid-gutter-width-base: 30px;
+  $grid-breakpoints: (
+    xs: 0,
+    sm: 480px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px
+  );
+
+  @import '../bootstrap/scss/_variables.scss';
+  @import '../bootstrap/scss/_mixins.scss';
+  @import '../bootstrap/scss/_reboot.scss';
+
+  .content {
+    max-width: 60em;
+    @include make-container();
+  }
+  .row {
+    @include make-row();
+  }
+  .content-primary {
+    @include make-col-ready();
+    @include make-col(8);
+    @media (min-width: 480px) {
+      @include make-col(5);
+    }
+  }
+  .content-secondary {
+    @include make-col-ready();
+    @include make-col(8);
+    @media (min-width: 480px) {
+      @include make-col(3);
+    }
+  }
+
+  // debugging
+  * {
+    outline: 1px solid red;
+  }
 }
+
