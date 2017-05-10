@@ -1,20 +1,30 @@
-$enable-flex: true;
-$enable-grid-classes: true;
-$grid-columns: 8;
-$grid-gutter-width-base: 60px;
-$grid-breakpoints: (
-  xs: 0,
-  sm: 480px,
-  md: 768px,
-  lg: 992px,
-  xl: 1200px
-);
-
+// reboot (normalize)
 @import '../bootstrap/scss/_variables.scss';
 @import '../bootstrap/scss/_mixins.scss';
 @import '../bootstrap/scss/_reboot.scss';
-@import '../bootstrap/scss/_grid.scss';
 
+
+// 8-column grid with bootstrap's semantic namespaced with a 'bootstrap' class
+.bootstrap {
+  $enable-flex: true;
+  $enable-grid-classes: true;
+  $grid-columns: 8;
+  $grid-gutter-width-base: 60px;
+  $grid-breakpoints: (
+    xs: 0,
+    sm: 480px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px
+  );
+
+  @import '../bootstrap/scss/_variables.scss';
+  @import '../bootstrap/scss/_mixins.scss';
+  @import '../bootstrap/scss/_reboot.scss';
+  @import '../bootstrap/scss/_grid.scss';
+}
+
+// debugging
 * {
-  outline: 1px solid $orange;
+  outline: 1px solid orange;
 }
